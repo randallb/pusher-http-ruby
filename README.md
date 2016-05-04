@@ -195,15 +195,16 @@ It's possible to use the gem to authenticate subscription requests to private or
 ### Private channels
 
 ``` ruby
-Pusher.authenticate('private-my_channel', params[:socket_id])
+pusher_client[params[:channel_name]].authenticate(params[:socket_id])
 ```
+
 
 ### Presence channels
 
 These work in a very similar way, but require a unique identifier for the user being authenticated, and optionally some attributes that are provided to clients via presence events:
 
 ``` ruby
-Pusher.authenticate('presence-my_channel', params[:socket_id],
+pusher_client[params[:channel_name]].authenticate(params[:socket_id],
   user_id: 'user_id',
   user_info: {} # optional
 )
